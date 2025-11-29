@@ -7,10 +7,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// ROTA PRINCIPAL
 app.get("/", (req, res) => {
   res.json({ ok: true, message: "API da Jandira está no ar" });
 });
 
+// ROTA DE AUDITORIA
 app.post("/instagram/audit", (req, res) => {
   const { handle, profileUrl, objective, language } = req.body;
 
@@ -67,6 +69,7 @@ app.post("/instagram/audit", (req, res) => {
   return res.json(responseMock);
 });
 
+// INICIAR SERVIDOR
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
